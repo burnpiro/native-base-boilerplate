@@ -1,0 +1,86 @@
+{
+  "name": "native-boilerplate",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start-native": "node node_modules/react-native/local-cli/cli.js start",
+    "build-android": "./scripts/build-android.sh -- $npm_package_name $npm_package_version",
+    "build-ios": "./scripts/build-ios.sh -- $npm_package_name $npm_package_version",
+    "version": "echo $npm_package_version",
+    "test": "node scripts/test.js",
+    "test-coverage": "node scripts/test.js --coverage",
+    "lint": "eslint --ext .jsx,.js src/"
+  },
+  "dependencies": {
+    "babel-eslint": "^10.0.1",
+    "dotenv": "^6.1.0",
+    "eslint": "^5.9.0",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-config-prettier": "^3.3.0",
+    "eslint-config-react-app": "^3.0.5",
+    "eslint-loader": "^2.1.1",
+    "eslint-plugin-flowtype": "^3.2.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-jsx-a11y": "^6.1.2",
+    "eslint-plugin-prettier": "^3.0.0",
+    "eslint-plugin-react": "^7.11.1",
+    "flow": "^0.2.3",
+    "flow-bin": "^0.86.0",
+    "jest-resolve": "^23.6.0",
+    "native-base": "^2.8.1",
+    "prettier": "^1.15.2",
+    "react": "16.6.1",
+    "react-art": "^16.6.3",
+    "react-native": "0.57.5",
+    "react-native-gesture-handler": "^1.0.9",
+    "react-navigation": "^3.0.0"
+  },
+  "devDependencies": {
+    "babel-jest": "23.6.0",
+    "jest": "23.6.0",
+    "metro-react-native-babel-preset": "0.49.2",
+    "react-test-renderer": "16.6.1"
+  },
+  "jest": {
+    "preset": "react-native",
+    "collectCoverageFrom": [
+      "src/**/*.{js,jsx,ts,tsx}",
+      "!src/**/*.d.ts"
+    ],
+    "resolver": "jest-pnp-resolver",
+    "setupFiles": [
+      "react-app-polyfill/jsdom"
+    ],
+    "testMatch": [
+      "<rootDir>/src/**/__tests__/**/*.{js,jsx,ts,tsx}",
+      "<rootDir>/src/**/?(*.)(spec|test).{js,jsx,ts,tsx}"
+    ],
+    "testEnvironment": "jsdom",
+    "testURL": "http://localhost",
+    "transform": {
+      "^.+\\.(js|jsx|ts|tsx)$": "<rootDir>/node_modules/babel-jest",
+      "^.+\\.css$": "<rootDir>/config/jest/cssTransform.js",
+      "^(?!.*\\.(js|jsx|ts|tsx|css|json)$)": "<rootDir>/config/jest/fileTransform.js"
+    },
+    "transformIgnorePatterns": [
+      "[/\\\\]node_modules[/\\\\].+\\.(js|jsx|ts|tsx)$",
+      "^.+\\.module\\.(css|sass|scss)$"
+    ],
+    "moduleNameMapper": {
+      "^react-native$": "react-native-web",
+      "^.+\\.module\\.(css|sass|scss)$": "identity-obj-proxy"
+    },
+    "moduleFileExtensions": [
+      "web.js",
+      "js",
+      "web.ts",
+      "ts",
+      "web.tsx",
+      "tsx",
+      "json",
+      "web.jsx",
+      "jsx",
+      "node"
+    ]
+  }
+}
